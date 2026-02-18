@@ -1,19 +1,4 @@
 <div class="library-container">
-  <!-- Header -->
-  <header class="library-header">
-    <div class="header-content">
-      <div class="logo-section">
-        <h1 class="library-title">📚 Digital Library</h1>
-        <p class="library-subtitle">Your gateway to knowledge</p>
-      </div>
-      <nav class="main-navigation">
-        <button class="nav-button">Catalog</button>
-        <button class="nav-button">My Account</button>
-        <button class="nav-button">Help</button>
-      </nav>
-    </div>
-  </header>
-
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-content">
@@ -97,30 +82,14 @@
     <div class="section-content">
       <h3 class="section-title">Popular This Week</h3>
       <div class="books-grid">
-        <div class="book-card">
-          <div class="book-cover">📚</div>
-          <h4 class="book-title">The Silent Patient</h4>
-          <p class="book-author">Alex Michaelides</p>
-          <div class="book-status available">Available</div>
-        </div>
-        <div class="book-card">
-          <div class="book-cover">📖</div>
-          <h4 class="book-title">Educated</h4>
-          <p class="book-author">Tara Westover</p>
-          <div class="book-status checked-out">Checked Out</div>
-        </div>
-        <div class="book-card">
-          <div class="book-cover">📕</div>
-          <h4 class="book-title">The Midnight Library</h4>
-          <p class="book-author">Matt Haig</p>
-          <div class="book-status available">Available</div>
-        </div>
-        <div class="book-card">
-          <div class="book-cover">📗</div>
-          <h4 class="book-title">Klara and the Sun</h4>
-          <p class="book-author">Kazuo Ishiguro</p>
-          <div class="book-status reserved">Reserved</div>
-        </div>
+        <a *ngFor="let book of books" [routerLink]="['/book', book.id]" class="book-card-link">
+          <div class="book-card">
+            <div class="book-cover">{{ book.cover }}</div>
+            <h4 class="book-title">{{ book.title }}</h4>
+            <p class="book-author">{{ book.author }}</p>
+            <div class="book-status" [ngClass]="book.status">{{ book.status.replace('-', ' ') }}</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -153,40 +122,4 @@
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer class="library-footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="#">Catalog Search</a></li>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Renewals</a></li>
-          <li><a href="#">Reservations</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Services</h4>
-        <ul class="footer-links">
-          <li><a href="#">Digital Library</a></li>
-          <li><a href="#">Study Rooms</a></li>
-          <li><a href="#">Research Help</a></li>
-          <li><a href="#">Interlibrary Loans</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Contact Info</h4>
-        <div class="contact-info">
-          <p>📍 123 Library Street</p>
-          <p>📞 (555) 123-4567</p>
-          <p>✉️ info&#64;library.edu</p>
-          <p>🕒 Mon-Fri 8AM-10PM</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Digital Library. All rights reserved.</p>
-    </div>
-  </footer>
 </div>
